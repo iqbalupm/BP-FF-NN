@@ -17,12 +17,11 @@ import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("unused")
 public class F_Utama {
-	
+
 	public JFrame frameMain;
-	
-	
-public static void main(String[] args) throws IOException {
-	
+
+	public static void main(String[] args) throws IOException {
+		
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (ClassNotFoundException e1) {
@@ -51,27 +50,18 @@ public static void main(String[] args) throws IOException {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public F_Utama() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
-		
 		
 		frameMain = new JFrame();
 		frameMain.setTitle("Backpropagation");		
 		frameMain.setResizable(false);
 		frameMain.setBounds(100, 100, 500, 300);
 		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
+
 		JMenuBar menubar = new JMenuBar();
 		JMenu training = new JMenu("Training");
 		JMenu testing = new JMenu("Testing");
@@ -95,8 +85,7 @@ public static void main(String[] args) throws IOException {
 		menubar.add(normalisasi);
 		menubar.add(GBobot);
 		frameMain.setJMenuBar(menubar);
-		
-		
+
 		train.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -151,7 +140,5 @@ public static void main(String[] args) throws IOException {
 		JLabel lbl_input = new JLabel();
 		lbl_input.setIcon(new ImageIcon("test.JPEG"));
 		panelParameter.add(lbl_input);
-		
 	}
-
 }
