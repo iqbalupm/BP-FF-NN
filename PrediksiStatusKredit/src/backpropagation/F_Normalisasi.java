@@ -1,5 +1,4 @@
 package backpropagation;
-
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,16 +12,16 @@ import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+@SuppressWarnings("unused")
 public class F_Normalisasi {
 	
 	public JFrame frameNormalisasi;
@@ -33,8 +32,7 @@ public class F_Normalisasi {
     public static float fTesData[][];   	
    	private static JTable table ;
    	
-	public static void main(String[] args) {		
-		
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -50,7 +48,7 @@ public class F_Normalisasi {
 	public F_Normalisasi() {
 		initialize();
 	}
-	
+
 	private void initialize() {
 		frameNormalisasi = new JFrame();
 		frameNormalisasi.setTitle("Normalisasi");
@@ -58,41 +56,41 @@ public class F_Normalisasi {
 		frameNormalisasi.setBounds(100, 100, 1000, 500);
 		frameNormalisasi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameNormalisasi.getContentPane().setLayout(null);
-		
+
 		txtPath = new JTextField();
 	    txtPath.setBounds(50, 40, 390, 21);
 	    frameNormalisasi.getContentPane().add(txtPath);
 	    txtPath.setColumns(10);
-	    
+
 	    txtdestination = new JTextField();
 	    txtdestination.setBounds(50, 70, 390, 21);
 	    frameNormalisasi.getContentPane().add(txtdestination);
 	    txtdestination.setColumns(10);
-	         
+
 	    btnLoad = new JButton("Load");
 	    btnLoad.setBounds(470, 40, 80, 23);
 	    frameNormalisasi.getContentPane().add(btnLoad);
-	    
+
 	    btnSave = new JButton("Save");
 	    btnSave.setBounds(470, 70, 80, 23);
 	    frameNormalisasi.getContentPane().add(btnSave);
-	    
+
 	    table = new JTable();
-	   table.setBounds(160, 130, 680, 116);
+	    table.setBounds(160, 130, 680, 116);
 		frameNormalisasi.getContentPane().add(table);
-	    
+
 	    btnLoad.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	          JFileChooser fileChooser = new JFileChooser();	         
-	          fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);	   
-	          fileChooser.setAcceptAllFileFilterUsed(false);	   
-	          int rVal = fileChooser.showOpenDialog(null);
-	          if (rVal == JFileChooser.APPROVE_OPTION) {
-	            txtPath.setText(fileChooser.getSelectedFile().toString());
-	          }
-	        }
-	      });
-	    
+	    	public void actionPerformed(ActionEvent e) {
+	    		JFileChooser fileChooser = new JFileChooser();	         
+	    		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);	   
+	    		fileChooser.setAcceptAllFileFilterUsed(false);	   
+	    		int rVal = fileChooser.showOpenDialog(null);
+	    		if (rVal == JFileChooser.APPROVE_OPTION) {
+	    			txtPath.setText(fileChooser.getSelectedFile().toString());
+	    		}
+	    	}
+	    });
+
 	    btnSave.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
 	          JFileChooser fileChooser = new JFileChooser();
@@ -104,13 +102,13 @@ public class F_Normalisasi {
 	        	  txtdestination.setText(fileChooser.getSelectedFile().toString());
 	          }
 	        }
-	      });
-		
-		btnProses = new JButton("PROSES");
+	    });
+
+	    btnProses = new JButton("PROSES");
 		btnProses.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				try{
+				try {
 				TransformasiData loaddata = new TransformasiData();
 				loaddata.convert();
 				datanormalisasi();
@@ -205,6 +203,7 @@ private static float min(float[][] data,int j){
        return min;
        
    }
+
 public static void minMax(float[][] data){
     float[][] newdata=new float[2000][2000];
     String s,view;
